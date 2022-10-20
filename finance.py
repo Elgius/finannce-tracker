@@ -22,17 +22,16 @@ while Run:
             "Cost($)" : Money
         }
 
+        dict.update(["Name"],["Quantity"],["Cost($)"])
 
-        fields = ["Name", "Quantity", "Cost($)"]
-        
 
-        base_file = "for data work.csv"
-
-        with open(base_file , "w") as file:
-            pen = DictWriter(file, fieldnames=fields)
-            pen.writerow(dict)
-
-        file.close()
+    fields = ["Name", "Quantity", "Cost($)"]
+    
+    base_file = "for data work.csv"
+    with open(base_file , "w") as file:
+        pen = DictWriter(file, fieldnames=fields)
+        pen.writerow(dict)
+    file.close()
 
         
 
