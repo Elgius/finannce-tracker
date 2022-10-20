@@ -1,4 +1,4 @@
-import csv
+from csv import DictWriter
 
 Run = True
 
@@ -7,24 +7,40 @@ while Run:
     print("All data entered are going to be run on the notebooks cells where we will be looking into the data")
     print("And the Graphs will be all diplayed here")
 
-    Spending = input("What did you spend on?:  ")
-    Quantity = input("How many times did you buy it?:   ")
-    Money = input("How much did this cost?:   ")
+    list = int(input("how many items do you want to add into the tracker?"))
 
-    fields = ["Name", "Quantity", "Cost($)"]
-    #fields = ['Name', 'Branch', 'Year']
-    row = [[Spending, Quantity, Money]]
+    for i in range(list):
+        Spending = input("What did you spend on?:  ")
+        Quantity = input("How many times did you buy it?:   ")
+        Money = input("How much did this cost?:   ")
 
-    with open("for data work.csv" , "w") as file:
-        pen = csv.writer(file)
-        pen.writerow(fields)
-        pen.writerows(row)
+        dict = {}
+
+        dict = {
+            "Name" : Spending,
+            "Quantity" : Quantity,
+            "Cost($)" : Money
+        }
 
 
-    with open("for data work.csv","r") as file:
-        data = csv.reader(file)
-        for lines in file:
-            print(lines)
+        fields = ["Name", "Quantity", "Cost($)"]
+        
+
+        base_file = "for data work.csv"
+
+        with open(base_file , "w") as file:
+            pen = DictWriter(file, fieldnames=fields)
+            pen.writerow(dict)
+
+        file.close()
+
+        
+
+
+    #with open("for data work.csv","r") as file:
+    #    data = csv.reader(file)
+    #    for lines in file:
+    #        print(lines)
 
 
 
