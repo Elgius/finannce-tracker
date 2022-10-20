@@ -18,6 +18,8 @@ with open(file_name,"r") as file:
 print("here is the csv file for inspection: ")
 print('Field names are as follows: ' + ',' .join(field for field in fields ))
 
+print('\nFirst 5 rows are:\n')
+
 for row in rows[:5]:
     for col in row:
         print("%10s"%col,end=" "),
