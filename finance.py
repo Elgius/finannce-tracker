@@ -7,7 +7,7 @@ fields = []
 rows = []
 
 with open(file_name,"r") as file:
-    data = csv.reader = (file)
+    data = csv.reader(file)
 
     fields = next(data)
 
@@ -16,7 +16,7 @@ with open(file_name,"r") as file:
 
 
 print("here is the csv file for inspection: ")
-print("Field names are as follows: " + "," .join(field for field in fields ))
+print('Field names are as follows: ' + ',' .join(field for field in fields ))
 
 for row in rows[:5]:
     for col in row:
