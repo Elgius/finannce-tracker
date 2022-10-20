@@ -1,48 +1,30 @@
 import csv
 
+Run = True
 
-file_name = "for data work.csv"
+while Run:
+    print("Welcome to the finance tracker!")
+    print("All data entered are going to be run on the notebooks cells where we will be looking into the data")
+    print("And the Graphs will be all diplayed here")
 
-fields = []
-rows = []
+    data_bank = {}
 
-with open(file_name,"r") as file:
-    data = csv.reader(file)
+    with open("for data work.csv","r") as file:
+        data = csv.reader(file)
 
-    fields = next(data)
-
-    for row in data:
-        rows.append(row)
+        for lines in file:
+            print(lines)
 
 
-print("here is the csv file for inspection: ")
-print('Field names are as follows: ' + ',' .join(field for field in fields ))
 
-print('\nFirst 5 rows are:\n')
 
-for row in rows[:5]:
-    for col in row:
-        print("%10s"%col,end=" "),
-    print('\n')
+    choice = input("Do you want to keep running the program?: [y/n] ")
+    choice = choice.lowercase()
+    match choice:
+        case "y":
+            Run = False
 
-#
-#Run = True
-#
-#while Run:
-#    print("Welcome to the finance tracker!")
-#    print("All data entered are going to be run on the notebooks cells where we will be looking into the data")
-#    print("And the Graphs will be all diplayed here")
-#
-#    data_bank = {
-#
-#
-#    }
-#
-#    choice = input("Do you want to keep running the program?:  ")
-#    match choice:
-#        case "y":
-#            Run = False
-#
-#        case _: Run = True
-#
-#
+        case "n":
+            Run = True
+
+        case _: print("Please type y or n")
